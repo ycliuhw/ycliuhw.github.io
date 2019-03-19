@@ -1,21 +1,29 @@
 {
-  "name": "kman",
-  "version": "1.0.0",
-  "description": "kman.in",
-  "main": "index.js",
-  "repository": "git@github.com:ycliuhw/ycliuhw.github.io.git",
-  "author": "ycliuhw@gmail.com",
-  "license": "MIT",
+  "name": "ycliuhw.github.io",
+  "version": "0.1.0",
+  "private": true,
   "dependencies": {
-    "@zeit/next-css": "^1.0.1",
     "antd": "^3.15.1",
-    "next": "^8.0.3",
+    "babel-plugin-import": "^1.11.0",
+    "customize-cra": "^0.2.12",
     "react": "^16.8.4",
-    "react-dom": "^16.8.4"
+    "react-app-rewired": "^2.1.1",
+    "react-dom": "^16.8.4",
+    "react-scripts": "2.1.8"
   },
   "scripts": {
-    "dev": "next",
-    "build": "next build",
-    "start": "next start"
-  }
+    "start": "react-app-rewired start",
+    "build": "react-app-rewired build",
+    "test": "react-app-rewired test",
+    "eject": "react-app-rewired eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
 }
