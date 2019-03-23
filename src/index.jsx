@@ -9,7 +9,6 @@ import ReactDOM from 'react-dom';
 // } from 'react-redux';
 // import reduxThunk from 'redux-thunk';
 
-import './index.css';
 import App from './App';
 // import appReducer from './store/reducers';
 
