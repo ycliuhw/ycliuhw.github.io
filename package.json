@@ -7,10 +7,18 @@
     "babel-plugin-import": "^1.11.0",
     "customize-cra": "^0.2.12",
     "gh-pages": "^2.0.1",
+    "isomorphic-fetch": "^2.2.1",
+    "querystring": "^0.2.0",
     "react": "^16.8.4",
     "react-app-rewired": "^2.1.1",
+    "react-cookie": "^3.1.1",
     "react-dom": "^16.8.4",
-    "react-scripts": "2.1.8"
+    "react-infinite-scroller": "^1.2.4",
+    "react-redux": "^6.0.1",
+    "react-router-dom": "^5.0.0",
+    "react-scripts": "2.1.8",
+    "redux": "^4.0.1",
+    "redux-thunk": "^2.3.0"
   },
   "scripts": {
     "predeploy": "npm run build",
@@ -29,5 +37,9 @@
     "not ie <= 11",
     "not op_mini all"
   ],
-  "homepage": "http://kman.in"
+  "homepage": "http://kman.in",
+  "devDependencies": {
+    "dotenv": "^7.0.0",
+    "eslint-plugin-react-hooks": "^1.6.0"
+  }
 }

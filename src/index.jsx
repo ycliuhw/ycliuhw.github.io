@@ -1,31 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-// import {
-//   createStore,
-//   applyMiddleware,
-// } from 'redux';
-// import {
-//   Provider,
-// } from 'react-redux';
-// import reduxThunk from 'redux-thunk';
+import { CookiesProvider } from 'react-cookie';
 
 import App from './App';
-// import appReducer from './store/reducers';
 
 import * as serviceWorker from './serviceWorker';
 
-// const store = createStore(appReducer, applyMiddleware(reduxThunk));
 
 
 ReactDOM.render(
-  // <Provider store={
-  //   store
-  // }
-  // >
-  //   <App />
-  // </Provider>,
-
-  <App />,
+  <CookiesProvider>
+    <App />
+  </CookiesProvider>,
   document.getElementById('root'),
 );
 

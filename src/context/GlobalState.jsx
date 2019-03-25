@@ -1,43 +1,46 @@
 import React, { useState, useReducer } from 'react';
 
-import ShopContext from './shop-context';
-import appReducer, { ADD_PRODUCT, REMOVE_PRODUCT } from './reducers';
+import UserContext from './user-context';
+import {
+  appReducer,
+  SET_TOKEN, LOAD_PROFILE, LOAD_MEDIA, START_LOADING,
+} from './reducers';
+
+import instagramAPI, {
+  fetchProfile,
+  fetchMedia
+} from '../remote/instagramAPI';
 
 const GlobalState = (props) => {
-  const products = [
-    { id: 'p1', title: 'Gaming Mouse', price: 29.99 },
-    { id: 'p2', title: 'Harry Potter 3', price: 9.99 },
-    { id: 'p3', title: 'Used plastic bottle', price: 0.99 },
-    { id: 'p4', title: 'Half-dried plant', price: 2.99 },
-  ];
-  // const [cart, setCart] = useState([]);
-  const [cartState, dispatch] = useReducer(appReducer, { cart: [] });
+  const [appState, dispatch] = useReducer(appReducer, {
+    token: "",
+    profile: {},
+    media: {},
+  });
 
-  const addProductToCart = (product) => {
-    setTimeout(() => {
-      // setCart(updatedCart);
-      dispatch({ type: ADD_PRODUCT, product });
-    }, 700);
+  const setToken = token => dispatch({ type: SET_TOKEN, token });
+  const loadProfile = token => {
+    return fetchProfile(token).then(({ data }) => dispatch({ type: LOAD_PROFILE, profile: data }));
   };
-
-  const removeProductFromCart = (productId) => {
-    setTimeout(() => {
-      // setCart(updatedCart);
-      dispatch({ type: REMOVE_PRODUCT, productId });
-    }, 700);
+  const loadMedia = token => {
+    return fetchMedia(token).then(media => dispatch({ type: LOAD_MEDIA, media }));
   };
+  const startLoading = () => dispatch({ type: START_LOADING })
 
   return (
-    <ShopContext.Provider
+    <UserContext.Provider
       value={{
-        products,
-        cart: cartState.cart,
-        addProductToCart,
-        removeProductFromCart,
+        setToken,
+        loadProfile,
+        loadMedia,
+        startLoading,
+        token: appState.token,
+        profile: appState.profile,
+        media: appState.media,
       }}
     >
       {props.children}
-    </ShopContext.Provider>
+    </UserContext.Provider>
   );
 };
 
